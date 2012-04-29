@@ -1,10 +1,10 @@
 package org.crumbleworks.mcdonnough.morsecoder;
 
 public class MorseCoder {
-    private MorseCode morseCode;
+    private MorseCodeCharacterGetter morseCode;
     
     public MorseCoder(String pathToMorsecodeXML) {
-        morseCode = new MorseCode(pathToMorsecodeXML);
+        morseCode = new MorseCodeCharacterGetter(pathToMorsecodeXML);
     }
     
     public String encode(String text) {
