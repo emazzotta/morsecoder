@@ -21,19 +21,19 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class MorseCodeParser extends DefaultHandler {
-    private List<MorseCharacter> tempMorseCharacters;
-    private MorseCharacter tempMorseCharacter;
+    private List<MorseCodeCharacter> tempMorseCharacters;
+    private MorseCodeCharacter tempMorseCharacter;
     
     private boolean letter, code;
    
     public MorseCodeParser() {
-        tempMorseCharacters = new ArrayList<MorseCharacter>();
+        tempMorseCharacters = new ArrayList<MorseCodeCharacter>();
         
         letter = false;
         code = false;
     }
     
-    public List<MorseCharacter> parseDocument(String pathToDocument) {
+    public List<MorseCodeCharacter> parseDocument(String pathToDocument) {
         File file = new File(pathToDocument);
         InputSource is = null;
         
@@ -63,7 +63,7 @@ public class MorseCodeParser extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName,String qName, Attributes attributes) throws SAXException {
         if(qName.equalsIgnoreCase("morsecharacter")) {
-            tempMorseCharacter = new MorseCharacter();
+            tempMorseCharacter = new MorseCodeCharacter();
         }
         else if (qName.equalsIgnoreCase("letter")) {
             letter = true;
