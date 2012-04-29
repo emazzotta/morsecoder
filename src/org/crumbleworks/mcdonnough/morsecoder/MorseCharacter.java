@@ -8,6 +8,7 @@ public class MorseCharacter {
         this.letter = letter;
         this.code = code;
     }
+    //COMMENT
 
     public MorseCharacter() {
         // TODO Auto-generated constructor stub
