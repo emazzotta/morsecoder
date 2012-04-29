@@ -48,16 +48,4 @@ public class MorseCoder {
         
         return new String(text);
     }
-    
-    public static void main(String[] agrs) {
-        MorseCoder c = new MorseCoder("./data/morsecode_general.xml");
-        
-        String text = "Hello, World! [SOS] . ) [KN]";
-        String code = c.encode(text);
-        String text2 = c.decode(code);
-        
-        System.out.println("Text: " + text);
-        System.out.println("Encoded: " + code);
-        System.out.println("Decoded: " + text2);
-    }
 }
