@@ -3,37 +3,60 @@ package org.crumbleworks.mcdonnough.morsecoder;
 public class MorseCoder {
 	
     private MorseCodeCharacterGetter morseCodeCharacterGetter;
+    private MorseCodeUtilities morseCodeUtilities;
+    private StringBuffer morseEncodedTextBuffer;
+    private StringBuffer morseDecodedTextBuffer;
     
     public MorseCoder(String pathToMorsecodeXML) {
         morseCodeCharacterGetter = new MorseCodeCharacterGetter(pathToMorsecodeXML);
+        morseCodeUtilities = new MorseCodeUtilities();
+        morseEncodedTextBuffer = new StringBuffer();
+        morseDecodedTextBuffer = new StringBuffer();
     }
     
     public String encode(String unencodedText) {
         String[] splittedUnencodedText = unencodedText.split(" ");
-        StringBuffer morseEncodedTextBuffer = new StringBuffer();
         
         for(int encodedWordsCounter = 0; encodedWordsCounter < splittedUnencodedText.length; encodedWordsCounter++) {
             String wordToEncode = splittedUnencodedText[encodedWordsCounter];
             
             if(wordToEncode.startsWith("[") && wordToEncode.endsWith("]")) {
-                morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(wordToEncode) + "/");
-            }
-            else {
+            	handleExceptionalWords(wordToEncode);
+            } else {
                 for(int charCounter = 0; charCounter < wordToEncode.length(); charCounter++) {
                     String tempChar = wordToEncode.subSequence(charCounter, charCounter+1).toString();
                     morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(tempChar) + "/");
                 }
+                
+                morseEncodedTextBuffer.append("/");
             }
-            
-            morseEncodedTextBuffer.append("/");
         }
         
         return new String(morseEncodedTextBuffer);
     }
+
+	private void handleExceptionalWords(String wordToEncode) {
+		if(wordToEncode.contains("][")) {
+			handleMultipleSpecialWords(wordToEncode);
+		} else {
+			morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(wordToEncode) + "/");
+		}
+	}
+
+	private void handleMultipleSpecialWords(String wordToEncode) {
+		if(morseCodeUtilities.findOccurenceInStringOf("]", wordToEncode) == morseCodeUtilities.findOccurenceInStringOf("[", wordToEncode)) {
+			String[] splittedUnencodedText = wordToEncode.split("]");
+			
+			for(int amountOfSpecialWordsEncoded = 0; amountOfSpecialWordsEncoded < morseCodeUtilities.findOccurenceInStringOf("]", wordToEncode); amountOfSpecialWordsEncoded++) {
+				morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(splittedUnencodedText[amountOfSpecialWordsEncoded] + "]") + "//");
+			}
+		} else {
+			morseEncodedTextBuffer.append(MorseCodeUtilities.ERROR_STRING);
+		}
+	}
     
     public String decode(String morseEncodedText) {
         String[] splittedMorseCode = morseEncodedText.split("//");
-        StringBuffer morseDecodedTextBuffer = new StringBuffer();
         
         for(int wordCounter = 0; wordCounter < splittedMorseCode.length; wordCounter++) {
             String word = splittedMorseCode[wordCounter];

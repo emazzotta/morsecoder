@@ -14,12 +14,17 @@ public class MorseCoderTest {
 	}
 
 	@Test
-	public void testEncode() {
-		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../[undefined]//...---...//...---...//", morseCoder.encode("Hello, world! [SOS] [SOS]"));
+	public void testIfEncodeWorksAsExpected() {
+		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../" + MorseCodeUtilities.ERROR_STRING + "//", morseCoder.encode("Hello, world!"));
 	}
 	
 	@Test
-	public void testDecode() {
+	public void testIfEncodeWorksAsExpectedWithThreeSpecialCasesNotSeparated() {
+		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../" + MorseCodeUtilities.ERROR_STRING + "//...---...//...---...//...---...//", morseCoder.encode("Hello, world! [SOS][SOS][SOS]"));
+	}
+	
+	@Test
+	public void testIfDecodeWorksAsExpected() {
 		assertEquals("HELLO, WORLD", morseCoder.decode("...././.-../.-../---/--..--/   /.--/---/.-./.-../-../"));
 	}
 }

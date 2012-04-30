@@ -17,7 +17,7 @@ public class MorseCodeCharacterGetter {
             }
         }
         
-        return "[undefined]";
+        return MorseCodeUtilities.ERROR_STRING;
     }
     
     public String getLetterForCode(String code) {
@@ -27,6 +27,6 @@ public class MorseCodeCharacterGetter {
             }
         }
         
-        return "[undefined]";
+        return MorseCodeUtilities.ERROR_STRING;
     }
 }
