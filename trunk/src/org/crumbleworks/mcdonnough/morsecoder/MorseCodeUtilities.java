@@ -4,7 +4,7 @@ public class MorseCodeUtilities {
 
 	public static String ERROR_STRING = "[undefined]";
 	
-	public int findOccurencesInStringOfSequence(String needle, String haystack) {
+	public int findOccurencesOfSequenceInString(String needle, String haystack) {
 		int occurenceCounter = 0;
 		
 		int currentOccurencePosition = haystack.indexOf(needle);

@@ -2,16 +2,11 @@ package org.crumbleworks.mcdonnough.morsecoder;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class MorseCoderTest {
-	MorseCoder morseCoder;
-
-	@Before
-	public void initializeMorseCoder() throws Exception {
-		morseCoder = new MorseCoder("./data/morsecode_general.xml");
-	}
+	
+	MorseCoder morseCoder = new MorseCoder("./data/morsecode_general.xml");
 
 	@Test
 	public void testIfEncodeWorksAsExpected() {

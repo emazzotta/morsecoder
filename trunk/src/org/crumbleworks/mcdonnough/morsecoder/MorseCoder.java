@@ -40,10 +40,10 @@ public class MorseCoder {
 	}
 
 	private void handleExceptionalWords(String wordToEncode) {
-		if(morseCodeUtilities.findOccurencesInStringOfSequence("]", wordToEncode) == morseCodeUtilities.findOccurencesInStringOfSequence("[", wordToEncode)) {
+		if(morseCodeUtilities.findOccurencesOfSequenceInString("]", wordToEncode) == morseCodeUtilities.findOccurencesOfSequenceInString("[", wordToEncode)) {
 			String[] splittedUnencodedText = wordToEncode.split("]");
 			
-			for(int amountOfSpecialWordsEncoded = 0; amountOfSpecialWordsEncoded < morseCodeUtilities.findOccurencesInStringOfSequence("]", wordToEncode); amountOfSpecialWordsEncoded++) {
+			for(int amountOfSpecialWordsEncoded = 0; amountOfSpecialWordsEncoded < morseCodeUtilities.findOccurencesOfSequenceInString("]", wordToEncode); amountOfSpecialWordsEncoded++) {
 				morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(splittedUnencodedText[amountOfSpecialWordsEncoded] + "]") + "//");
 			}
 		} else {
