@@ -151,6 +151,10 @@
 		<code>.-.-.-</code>
 	</morsecharacter>
 	<morsecharacter>
+		<letter> </letter>
+		<code>   </code>
+	</morsecharacter>
+	<morsecharacter>
 		<letter>,</letter>
 		<code>--..--</code>
 	</morsecharacter>

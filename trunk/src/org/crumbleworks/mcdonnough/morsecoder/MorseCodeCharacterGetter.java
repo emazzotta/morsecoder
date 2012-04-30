@@ -4,14 +4,14 @@ import java.util.List;
 
 public class MorseCodeCharacterGetter {
 	
-    private List<MorseCodeCharacter> morseCharacters;
+    private List<MorseCodeCharacter> morseCodeCharacters;
     
     public MorseCodeCharacterGetter(String pathToMorsecodeXML) {
-        morseCharacters = new MorseCodeParser().parseDocument(pathToMorsecodeXML);
+        morseCodeCharacters = new MorseCodeParser().parseDocument(pathToMorsecodeXML);
     }
     
     public String getCodeForLetter(String letter) {
-        for(MorseCodeCharacter mc : morseCharacters) {
+        for(MorseCodeCharacter mc : morseCodeCharacters) {
             if(mc.getLetter().equalsIgnoreCase(letter)) {
                 return mc.getCode();
             }
@@ -21,7 +21,7 @@ public class MorseCodeCharacterGetter {
     }
     
     public String getLetterForCode(String code) {
-        for(MorseCodeCharacter mc : morseCharacters) {
+        for(MorseCodeCharacter mc : morseCodeCharacters) {
             if(mc.getCode().equalsIgnoreCase(code)) {
                 return mc.getLetter();
             }

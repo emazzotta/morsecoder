@@ -15,11 +15,11 @@ public class MorseCoderTest {
 
 	@Test
 	public void testEncode() {
-		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../[undefined]//...---...//...---...", morseCoder.encode("Hello, world! [SOS][SOS]"));
+		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../[undefined]//...---...//...---...//", morseCoder.encode("Hello, world! [SOS] [SOS]"));
 	}
 	
 	@Test
 	public void testDecode() {
-		assertEquals("HELLO, WORLD[undefined] [SOS] [SOS] ", morseCoder.decode("...././.-../.-../---/--..--//.--/---/.-./.-../-../[undefined]//...---...//...---..."));
+		assertEquals("HELLO, WORLD", morseCoder.decode("...././.-../.-../---/--..--/   /.--/---/.-./.-../-../"));
 	}
 }
