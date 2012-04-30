@@ -4,14 +4,13 @@ public class MorseCodeUtilities {
 
 	public static String ERROR_STRING = "[undefined]";
 	
-	public int findOccurenceInStringOf(String needle, String haystack) {
-		int len = needle.length();
+	public int findOccurencesInStringOfSequence(String needle, String haystack) {
 		int occurenceCounter = 0;
 		
-		int start = haystack.indexOf(needle);
-		while (start != -1) {
+		int currentOccurencePosition = haystack.indexOf(needle);
+		while(currentOccurencePosition != -1) {
 			occurenceCounter++;
-			start = haystack.indexOf(needle, start+len);
+			currentOccurencePosition = haystack.indexOf(needle, currentOccurencePosition + needle.length());
 		}
 		
 		return occurenceCounter;
