@@ -33,7 +33,7 @@ public class MorseCoder {
     
     public String decode(String morseEncodedText) {
         String[] splittedMorseCode = morseEncodedText.split("//");
-        StringBuffer text = new StringBuffer();
+        StringBuffer morseDecodedTextBuffer = new StringBuffer();
         
         for(int wordCounter = 0; wordCounter < splittedMorseCode.length; wordCounter++) {
             String word = splittedMorseCode[wordCounter];
@@ -41,12 +41,12 @@ public class MorseCoder {
             
             for(int letterCounter = 0; letterCounter < letters.length; letterCounter++) {
                 String letter = letters[letterCounter];
-                text.append(morseCodeCharacterGetter.getLetterForCode(letter));
+                morseDecodedTextBuffer.append(morseCodeCharacterGetter.getLetterForCode(letter));
             }
             
-            text.append(" ");
+            if(wordCounter != (splittedMorseCode.length-1)) morseDecodedTextBuffer.append(" ");
         }
         
-        return new String(text);
+        return new String(morseDecodedTextBuffer);
     }
 }
