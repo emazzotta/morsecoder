@@ -21,6 +21,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class MorseCodeParser extends DefaultHandler {
+	
     private List<MorseCodeCharacter> tempMorseCharacters;
     private MorseCodeCharacter tempMorseCharacter;
     
@@ -42,8 +43,7 @@ public class MorseCodeParser extends DefaultHandler {
             Reader reader = new InputStreamReader(inputStream, "UTF-8");
             is = new InputSource(reader);
             is.setEncoding("UTF-8");
-        }
-        catch(FileNotFoundException | UnsupportedEncodingException e) {
+        } catch(FileNotFoundException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         
@@ -52,8 +52,7 @@ public class MorseCodeParser extends DefaultHandler {
         try {
             SAXParser sp = spf.newSAXParser();
             sp.parse(is, this);
-        }
-        catch(ParserConfigurationException | SAXException | IOException e) {
+        } catch(ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
         
@@ -64,11 +63,9 @@ public class MorseCodeParser extends DefaultHandler {
     public void startElement(String uri, String localName,String qName, Attributes attributes) throws SAXException {
         if(qName.equalsIgnoreCase("morsecharacter")) {
             tempMorseCharacter = new MorseCodeCharacter();
-        }
-        else if (qName.equalsIgnoreCase("letter")) {
+        } else if (qName.equalsIgnoreCase("letter")) {
             letter = true;
-        }
-        else if (qName.equalsIgnoreCase("code")) {
+        } else if (qName.equalsIgnoreCase("code")) {
             code = true;
         }
     }
@@ -83,8 +80,7 @@ public class MorseCodeParser extends DefaultHandler {
         if(letter) {
             tempMorseCharacter.setLetter(new String(ch, start, length));
             letter = false;
-        }
-        else if(code) {
+        } else if(code) {
             tempMorseCharacter.setCode(new String(ch, start, length));
             code = false;
             
