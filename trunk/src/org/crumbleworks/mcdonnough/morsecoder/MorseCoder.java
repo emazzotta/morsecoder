@@ -1,37 +1,38 @@
 package org.crumbleworks.mcdonnough.morsecoder;
 
 public class MorseCoder {
-    private MorseCodeCharacterGetter morseCode;
+	
+    private MorseCodeCharacterGetter morseCodeCharacterGetter;
     
     public MorseCoder(String pathToMorsecodeXML) {
-        morseCode = new MorseCodeCharacterGetter(pathToMorsecodeXML);
+        morseCodeCharacterGetter = new MorseCodeCharacterGetter(pathToMorsecodeXML);
     }
     
-    public String encode(String text) {
-        String[] splittedText = text.split(" ");
-        StringBuffer morsecode = new StringBuffer();
+    public String encode(String unencodedText) {
+        String[] splittedUnencodedText = unencodedText.split(" ");
+        StringBuffer morseEncodedTextBuffer = new StringBuffer();
         
-        for(int wordCounter = 0; wordCounter < splittedText.length; wordCounter++) {
-            String word = splittedText[wordCounter];
+        for(int encodedWordsCounter = 0; encodedWordsCounter < splittedUnencodedText.length; encodedWordsCounter++) {
+            String wordToEncode = splittedUnencodedText[encodedWordsCounter];
             
-            if(word.startsWith("[") && word.endsWith("]")) {
-                morsecode.append(morseCode.getCodeForLetter(word) + "/");
+            if(wordToEncode.startsWith("[") && wordToEncode.endsWith("]")) {
+                morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(wordToEncode) + "/");
             }
             else {
-                for(int charCounter = 0; charCounter < word.length(); charCounter++) {
-                    String tempChar = word.subSequence(charCounter, charCounter+1).toString();
-                    morsecode.append(morseCode.getCodeForLetter(tempChar) + "/");
+                for(int charCounter = 0; charCounter < wordToEncode.length(); charCounter++) {
+                    String tempChar = wordToEncode.subSequence(charCounter, charCounter+1).toString();
+                    morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(tempChar) + "/");
                 }
             }
             
-            morsecode.append("/");
+            morseEncodedTextBuffer.append("/");
         }
         
-        return new String(morsecode);
+        return new String(morseEncodedTextBuffer);
     }
     
-    public String decode(String morsecode) {
-        String[] splittedMorseCode = morsecode.split("//");
+    public String decode(String morseEncodedText) {
+        String[] splittedMorseCode = morseEncodedText.split("//");
         StringBuffer text = new StringBuffer();
         
         for(int wordCounter = 0; wordCounter < splittedMorseCode.length; wordCounter++) {
@@ -40,7 +41,7 @@ public class MorseCoder {
             
             for(int letterCounter = 0; letterCounter < letters.length; letterCounter++) {
                 String letter = letters[letterCounter];
-                text.append(morseCode.getLetterForCode(letter));
+                text.append(morseCodeCharacterGetter.getLetterForCode(letter));
             }
             
             text.append(" ");

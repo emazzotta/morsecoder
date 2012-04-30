@@ -3,15 +3,10 @@ package org.crumbleworks.mcdonnough.morsecoder;
 import java.util.List;
 
 public class MorseCodeCharacterGetter {
-    private String pathToMorsecodeXML;
+	
     private List<MorseCodeCharacter> morseCharacters;
     
     public MorseCodeCharacterGetter(String pathToMorsecodeXML) {
-        this.pathToMorsecodeXML = pathToMorsecodeXML;
-        loadMorseCharacters();
-    }
-    
-    private void loadMorseCharacters() {
         morseCharacters = new MorseCodeParser().parseDocument(pathToMorsecodeXML);
     }
     
