@@ -19,6 +19,16 @@ public class MorseCoderTest {
 	}
 	
 	@Test
+	public void testIfEncodeWorksAsExpectedWithOneSpecialCasesNotSeparated() {
+		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../" + MorseCodeUtilities.ERROR_STRING + "//...---...//", morseCoder.encode("Hello, world! [SOS]"));
+	}
+	
+	@Test
+	public void testIfEncodeWorksAsExpectedWithGivingAnInvalidWord() {
+		assertEquals("[undefined]/.../---/...//", morseCoder.encode("[SOS"));
+	}
+	
+	@Test
 	public void testIfEncodeWorksAsExpectedWithThreeSpecialCasesNotSeparated() {
 		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../" + MorseCodeUtilities.ERROR_STRING + "//...---...//...---...//...---...//", morseCoder.encode("Hello, world! [SOS][SOS][SOS]"));
 	}
