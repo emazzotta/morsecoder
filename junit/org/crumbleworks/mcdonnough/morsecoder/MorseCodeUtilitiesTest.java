@@ -10,8 +10,6 @@ public class MorseCodeUtilitiesTest {
 	
 	@Test
 	public void testIfExpectedAmountOfOccurencesIsFound() {
-		String haystack = "Hi I'm Finsoeodeosfodos!";
-		
-		assertEquals(5, morseCodeStringUtilities.findOccurencesInStringOfSequence("o", haystack));
+		assertEquals(3, morseCodeStringUtilities.findOccurencesOfSequenceInString("o", "oozoa"));
 	}
 }

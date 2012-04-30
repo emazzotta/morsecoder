@@ -83,7 +83,6 @@ public class MorseCodeParser extends DefaultHandler {
         } else if(code) {
             tempMorseCharacter.setCode(new String(ch, start, length));
             code = false;
-            
             tempMorseCharacters.add(tempMorseCharacter);
         }
     }
