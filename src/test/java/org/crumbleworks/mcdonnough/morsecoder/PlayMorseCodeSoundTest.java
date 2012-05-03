@@ -15,7 +15,7 @@ public class PlayMorseCodeSoundTest {
 	
 	@Test
 	public void testIfPlayAudioOfValidMorseCodeWorksAsExpected() throws InvalidMorseCodeAudioOutputException {
-		playMorseCodeSound = new PlayMorseCodeSound(".../---/...");
+		playMorseCodeSound = new PlayMorseCodeSound("...-");
 		playMorseCodeSound.play();
 	}
 }
