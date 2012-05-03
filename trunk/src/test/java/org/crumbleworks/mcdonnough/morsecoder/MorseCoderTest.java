@@ -24,12 +24,12 @@ public class MorseCoderTest {
 	}
 	
 	@Test
-	public void testIfEncodeWorksAsExpectedWithThreeSpecialCasesNotSeparated() {
+	public void testIfEncodeWorksAsExpectedWithThreeSpecialCasesNotSeparated() throws InvalidMorseCodeAudioOutputException {
 		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../" + MorseCodeUtilities.ERROR_STRING + "//...---...//...---...//...---...//", morseCoder.encode("Hello, world! [SOS][SOS][SOS]"));
 	}
 	
 	@Test
 	public void testIfDecodeWorksAsExpected() {
-		assertEquals("HELLO, WORLD", morseCoder.decode("...././.-../.-../---/--..--/   /.--/---/.-./.-../-../"));
+		assertEquals("HELLO, WORLD", morseCoder.decode("...././.-../.-../---/--..--//.--/---/.-./.-../-../"));
 	}
 }
