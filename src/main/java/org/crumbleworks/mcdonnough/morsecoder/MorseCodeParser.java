@@ -72,7 +72,6 @@ public class MorseCodeParser extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        
     }
 
     @Override
