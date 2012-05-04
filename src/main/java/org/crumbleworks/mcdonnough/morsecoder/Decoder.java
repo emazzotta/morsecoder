@@ -5,8 +5,8 @@ public class Decoder {
     private MorseCodeCharacterGetter morseCodeCharacterGetter;
     private StringBuffer morseDecodedTextBuffer;
     
-    public Decoder(String pathToMorsecodeXML) {
-        morseCodeCharacterGetter = new MorseCodeCharacterGetter(pathToMorsecodeXML);
+    public Decoder() {
+        morseCodeCharacterGetter = new MorseCodeCharacterGetter(Constants.MORSECODE_CONTENT_XML_PATH);
         morseDecodedTextBuffer = new StringBuffer();
     }
     

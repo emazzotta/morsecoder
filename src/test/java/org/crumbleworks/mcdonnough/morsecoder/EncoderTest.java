@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class EncoderTest {
 	
-	Encoder morseEncoder = new Encoder(Constants.RESOURCE_PATH + "morsecode_general.xml");
+	Encoder morseEncoder = new Encoder();
 	
 	@Test
 	public void testIfEncodeWorksAsExpected() {
