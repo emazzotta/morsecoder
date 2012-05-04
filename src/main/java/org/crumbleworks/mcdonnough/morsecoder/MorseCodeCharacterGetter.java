@@ -7,7 +7,7 @@ public class MorseCodeCharacterGetter {
     private List<MorseCodeCharacter> morseCodeCharacters;
     
     public MorseCodeCharacterGetter(String pathToMorsecodeXML) {
-        morseCodeCharacters = new MorseCodeParser().parseDocument(pathToMorsecodeXML);
+        morseCodeCharacters = new Parser().parseDocument(pathToMorsecodeXML);
     }
     
     public String getCodeForLetter(String letter) {
@@ -17,7 +17,7 @@ public class MorseCodeCharacterGetter {
             }
         }
         
-        return MorseCodeUtilities.ERROR_STRING;
+        return Constants.ERROR_STRING;
     }
     
     public String getLetterForCode(String code) {
@@ -27,6 +27,6 @@ public class MorseCodeCharacterGetter {
             }
         }
         
-        return MorseCodeUtilities.ERROR_STRING;
+        return Constants.ERROR_STRING;
     }
 }

@@ -20,14 +20,14 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class MorseCodeParser extends DefaultHandler {
+public class Parser extends DefaultHandler {
 	
     private List<MorseCodeCharacter> tempMorseCharacters;
     private MorseCodeCharacter tempMorseCharacter;
     
     private boolean letter, code;
    
-    public MorseCodeParser() {
+    public Parser() {
         tempMorseCharacters = new ArrayList<MorseCodeCharacter>();
         
         letter = false;

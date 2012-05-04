@@ -1,6 +1,7 @@
 package org.crumbleworks.mcdonnough.morsecoder;
 
 public class MorseCodeCharacter {
+	
     private String letter;
     private String code;
     
