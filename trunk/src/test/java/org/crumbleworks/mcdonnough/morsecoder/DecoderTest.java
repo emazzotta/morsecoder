@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class DecoderTest {
 
-	Decoder morseDecoder = new Decoder(Constants.RESOURCE_PATH + "morsecode_general.xml");
+	Decoder morseDecoder = new Decoder();
 	
 	@Test
 	public void testIfDecodeWorksAsExpected() {
