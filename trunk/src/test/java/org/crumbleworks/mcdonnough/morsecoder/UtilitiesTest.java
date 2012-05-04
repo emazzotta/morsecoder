@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class MorseCodeUtilitiesTest {
+public class UtilitiesTest {
 
-	MorseCodeUtilities morseCodeStringUtilities = new MorseCodeUtilities();
+	Utilities morseCodeStringUtilities = new Utilities();
 	
 	@Test
 	public void testIfExpectedAmountOfOccurencesIsFound() {
