@@ -17,9 +17,12 @@ public class Constants {
 	
 	public static final String ERROR_STRING = "[undefined]";
 	
-	private static String createPath(URL filePath) {
-		String url = String.valueOf(filePath);
-		int startPos = url.indexOf("C:");
-		return url.substring(startPos);
+	private static String createPath(URL url) {
+	    	int positionWhereToStartCutTheStringFrom;
+		String filePath = String.valueOf(url);
+		
+		positionWhereToStartCutTheStringFrom = filePath.indexOf(":") + 2;
+		
+		return filePath.substring(positionWhereToStartCutTheStringFrom);
 	}
 }
