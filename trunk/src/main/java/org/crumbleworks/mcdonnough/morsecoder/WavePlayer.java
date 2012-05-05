@@ -1,7 +1,6 @@
 package org.crumbleworks.mcdonnough.morsecoder;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 
 import javax.sound.sampled.AudioFormat;
@@ -21,14 +20,8 @@ public class WavePlayer {
 	}
 
 	public void play() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		File soundFile = new File(wavFilePath);
 		SourceDataLine audioLine = null;
-		
-		if(!soundFile.exists()) {
-			throw new FileNotFoundException("Wave file not found: " + wavFilePath);
-		}
-		
-		AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+		AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(ClassLoader.getSystemResourceAsStream(wavFilePath)));
 		
 		AudioFormat audioFormat = audioInputStream.getFormat();
 		DataLine.Info info = new DataLine.Info(SourceDataLine.class, audioFormat);
