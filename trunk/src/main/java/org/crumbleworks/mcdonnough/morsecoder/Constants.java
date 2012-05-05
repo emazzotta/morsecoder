@@ -9,11 +9,10 @@ public class Constants {
 	public static final long AUDIO_PLAY_VERY_FAST_SPEED = 7000;
 	public static long AUDIO_MORSECODE_SPACE_SLEEP = 250;
 	
-	public static final String RESOURCE_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\";
-	public static final String TEST_RESOURCE_PATH = System.getProperty("user.dir") + "\\src\\test\\resources\\";
-	public static final String AUDIO_WAV_MORSECODE_SHORT_PATH = Constants.RESOURCE_PATH + "sfx\\short.wav";
-	public static final String AUDIO_WAV_MORSECODE_LONG_PATH = Constants.RESOURCE_PATH + "sfx\\long.wav";
-	public static final String MORSECODE_CONTENT_XML_PATH = Constants.RESOURCE_PATH + "xml\\morsecode.xml";
+	public static final String RESOURCE_PATH = "src/main/resources/";
+	public static final String AUDIO_WAV_MORSECODE_SHORT_PATH = Constants.RESOURCE_PATH + "sfx/short.wav";
+	public static final String AUDIO_WAV_MORSECODE_LONG_PATH = Constants.RESOURCE_PATH + "sfx/long.wav";
+	public static final String MORSECODE_CONTENT_XML_PATH = Constants.RESOURCE_PATH + "xml/morsecode.xml";
 	
 	public static final String ERROR_STRING = "[undefined]";
 }

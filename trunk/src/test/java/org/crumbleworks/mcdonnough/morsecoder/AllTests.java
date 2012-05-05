@@ -5,6 +5,6 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ DecoderTest.class, EncoderTest.class, PlayMorseCodeTest.class, UtilitiesTest.class })
+@SuiteClasses({ DecoderTest.class, EncoderTest.class, MorseCodePlayerTest.class })
 public class AllTests {
 }
