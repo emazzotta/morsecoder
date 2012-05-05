@@ -1,6 +1,5 @@
 package org.crumbleworks.mcdonnough.morsecoder;
 
-import java.net.URL;
 
 public class Constants {
 
@@ -11,18 +10,9 @@ public class Constants {
 	public static final long AUDIO_PLAY_VERY_FAST_SPEED = 7000;
 	public static long AUDIO_MORSECODE_SPACE_SLEEP = 250;
 	
-	public static final String AUDIO_WAV_MORSECODE_SHORT_PATH = createPath(Constants.class.getClassLoader().getResource("sfx/short.wav"));
-	public static final String AUDIO_WAV_MORSECODE_LONG_PATH = createPath(Constants.class.getClassLoader().getResource("sfx/long.wav"));
-	public static final String MORSECODE_CONTENT_XML_PATH = createPath(Constants.class.getClassLoader().getResource("xml/morsecode.xml"));
+	public static final String AUDIO_WAV_MORSECODE_SHORT_PATH = "sfx/short.wav";
+	public static final String AUDIO_WAV_MORSECODE_LONG_PATH = "sfx/long.wav";
+	public static final String MORSECODE_CONTENT_XML_PATH = "xml/morsecode.xml";
 	
 	public static final String ERROR_STRING = "[undefined]";
-	
-	private static String createPath(URL url) {
-	    	int positionWhereToStartCutTheStringFrom;
-		String filePath = String.valueOf(url);
-		
-		positionWhereToStartCutTheStringFrom = filePath.indexOf(":") + 2;
-		
-		return filePath.substring(positionWhereToStartCutTheStringFrom);
-	}
 }
