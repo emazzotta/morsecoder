@@ -12,11 +12,11 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class PlayWave {
+public class WavePlayer {
 
 	private String wavFilePath;
 	
-	public PlayWave(String wavFilePath) {
+	public WavePlayer(String wavFilePath) {
 		this.wavFilePath = wavFilePath;
 	}
 

@@ -3,12 +3,10 @@ package org.crumbleworks.mcdonnough.morsecoder;
 public class Encoder {
 	
 	private MorseCodeCharacterGetter morseCodeCharacterGetter;
-    private Utilities morseCodeUtilities;
     private StringBuffer morseEncodedTextBuffer;
     
 	public Encoder() {
 		morseCodeCharacterGetter = new MorseCodeCharacterGetter(Constants.MORSECODE_CONTENT_XML_PATH);
-        morseCodeUtilities = new Utilities();
         morseEncodedTextBuffer = new StringBuffer();
 	}
 
@@ -19,33 +17,43 @@ public class Encoder {
             String wordToEncode = splittedUnencodedText[encodedWordsCounter];
             
             if(wordToEncode.startsWith("[") && wordToEncode.endsWith("]")) {
-            	handleExceptionalWords(wordToEncode);
+            	handleIncompletelySeparatedWords(wordToEncode);
             } else {
-                handleUsualWords(wordToEncode);
+                handleCorrectlySeparatedWord(wordToEncode);
             }
         }
         
         return new String(morseEncodedTextBuffer);
     }
 
-	private void handleUsualWords(String wordToEncode) {
+    public int findOccurencesOfSequenceInString(String needle, String haystack) {
+    	int occurenceCounter = 0;
+    	
+    	int currentOccurencePosition = haystack.indexOf(needle);
+    	while(currentOccurencePosition != -1) {
+    		occurenceCounter++;
+    		currentOccurencePosition = haystack.indexOf(needle, currentOccurencePosition + needle.length());
+    	}
+    	
+    	return occurenceCounter;
+    }
+    
+	private void handleCorrectlySeparatedWord(String wordToEncode) {
 		for(int charCounter = 0; charCounter < wordToEncode.length(); charCounter++) {
 		    String tempChar = wordToEncode.subSequence(charCounter, charCounter+1).toString();
 		    morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(tempChar) + "/");
 		}
-		
 		morseEncodedTextBuffer.append("/");
 	}
 
-	private void handleExceptionalWords(String wordToEncode) {
-		if(morseCodeUtilities.findOccurencesOfSequenceInString("]", wordToEncode) == morseCodeUtilities.findOccurencesOfSequenceInString("[", wordToEncode)) {
+	private void handleIncompletelySeparatedWords(String wordToEncode) {
+		if(findOccurencesOfSequenceInString("]", wordToEncode) == findOccurencesOfSequenceInString("[", wordToEncode)) {
 			String[] splittedUnencodedText = wordToEncode.split("]");
-			
-			for(int amountOfSpecialWordsEncoded = 0; amountOfSpecialWordsEncoded < morseCodeUtilities.findOccurencesOfSequenceInString("]", wordToEncode); amountOfSpecialWordsEncoded++) {
+			for(int amountOfSpecialWordsEncoded = 0; amountOfSpecialWordsEncoded < findOccurencesOfSequenceInString("]", wordToEncode); amountOfSpecialWordsEncoded++) {
 				morseEncodedTextBuffer.append(morseCodeCharacterGetter.getCodeForLetter(splittedUnencodedText[amountOfSpecialWordsEncoded] + "]") + "//");
 			}
 		} else {
-			handleUsualWords(wordToEncode);
+			handleCorrectlySeparatedWord(wordToEncode);
 		}
 	}
 }

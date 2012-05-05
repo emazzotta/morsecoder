@@ -27,4 +27,9 @@ public class EncoderTest {
 	public void testIfEncodeWorksAsExpectedWithThreeSpecialCasesNotSeparated() throws InvalidMorseCodeAudioOutputException {
 		assertEquals("...././.-../.-../---/--..--//.--/---/.-./.-../-../" + Constants.ERROR_STRING + "//...---...//...---...//...---...//", morseEncoder.encode("Hello, world! [SOS][SOS][SOS]"));
 	}
+	
+	@Test
+	public void testIfExpectedAmountOfOccurencesIsFound() {
+		assertEquals(3, morseEncoder.findOccurencesOfSequenceInString("o", "oozoa"));
+	}
 }

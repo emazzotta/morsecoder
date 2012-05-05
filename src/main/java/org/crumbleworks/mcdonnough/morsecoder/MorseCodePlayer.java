@@ -5,24 +5,29 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-public class PlayMorseCode {
+public class MorseCodePlayer {
 
-	private PlayWave playShortWave;
-	private PlayWave playLongWave;
+	private WavePlayer playShortWave;
+	private WavePlayer playLongWave;
 	private String morseCode;
 	
-	public PlayMorseCode(String morseCode) {
+	public MorseCodePlayer(String morseCode) {
 		this.morseCode = morseCode;
-		playShortWave = new PlayWave(Constants.AUDIO_WAV_MORSECODE_SHORT_PATH);
-		playLongWave = new PlayWave(Constants.AUDIO_WAV_MORSECODE_LONG_PATH);
+		playShortWave = new WavePlayer(Constants.AUDIO_WAV_MORSECODE_SHORT_PATH);
+		playLongWave = new WavePlayer(Constants.AUDIO_WAV_MORSECODE_LONG_PATH);
 	}
 	
-	public void play() throws InvalidMorseCodeAudioOutputException, InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException {
+	public boolean isMorseCode() throws InvalidMorseCodeAudioOutputException {
 		for(int i=0;i<morseCode.length();i++) {
 			if(morseCode.charAt(i) != '.' && morseCode.charAt(i) != '-' && morseCode.charAt(i) != '/') {
 				throw new InvalidMorseCodeAudioOutputException("String to Audio-Output Contains Invalid Character(s)");
 			}
 		}
+		return true;
+	}
+	
+	public void play() throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException, InvalidMorseCodeAudioOutputException {
+		this.isMorseCode();
 		
 		for(int i=0;i<morseCode.length();i++) {
 			if(morseCode.charAt(i) == '.') {
