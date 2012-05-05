@@ -46,7 +46,7 @@ public class Main {
 	}
 	
 	private String getUsageHelp() {
-		String usageHelp = "\nCrumbleWorks MorseCoder by Patrick Baechli & Emanuele Mazzotta ver. 1.0 - A Morsecode Library.\n";
+		String usageHelp = "\ncrumbleWorks MorseCoder by Patrick Baechli & Emanuele Mazzotta ver. 1.0 - A Morsecode Library.\n";
 		usageHelp += "Usage: java -jar MorseCoder.jar [OPTION] [TEXT]\n\n";
 		
 		usageHelp += "At least one argument mandatory.\n\n";
