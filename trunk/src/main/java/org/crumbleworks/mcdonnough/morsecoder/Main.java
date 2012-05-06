@@ -64,6 +64,7 @@ public class Main {
             Long.parseLong(speed);
         }
         catch(Exception e) {
+        	System.out.println(new Main().getInvalidArgumentMessage(speed));
             System.exit(1);
         }
 
@@ -86,6 +87,7 @@ public class Main {
             return Constants.AUDIO_PLAY_VERY_FAST_SPEED;
         }
         else {
+        	System.out.println(new Main().getInvalidArgumentMessage(speed));
             System.exit(1);
         }
 
@@ -115,7 +117,7 @@ public class Main {
     }
 
     private String getInvalidArgumentMessage(String invalidCommand) {
-        String errorMessage = "MorseCoder: unknown option " + invalidCommand + "\n";
+        String errorMessage = "MorseCoder: unknown option '" + invalidCommand + "'\n";
         errorMessage += "Usage: java -jar MorseCoder.jar [OPTION]... [TEXT]\n\n";
 
         errorMessage += "Try 'java -jar MorseCoder.jar --help' for more options.\n";
