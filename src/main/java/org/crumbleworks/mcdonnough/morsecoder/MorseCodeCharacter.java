@@ -1,17 +1,17 @@
 package org.crumbleworks.mcdonnough.morsecoder;
 
 public class MorseCodeCharacter {
-	
+
     private String letter;
     private String code;
-    
+
     public MorseCodeCharacter(String letter, String code) {
         this.letter = letter;
         this.code = code;
     }
-    
+
     public MorseCodeCharacter() {
-	}
+    }
 
     public String getLetter() {
         return letter;
