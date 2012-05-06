@@ -9,7 +9,7 @@ public class Encoder {
     }
 
     public String encode(String unencodedText) {
-	morseEncodedTextBuffer = new StringBuffer();
+        morseEncodedTextBuffer = new StringBuffer();
         String[] splittedUnencodedText = unencodedText.split(" ");
 
         for(int encodedWordsCounter = 0; encodedWordsCounter < splittedUnencodedText.length; encodedWordsCounter++) {

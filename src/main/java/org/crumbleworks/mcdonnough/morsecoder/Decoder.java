@@ -9,7 +9,7 @@ public class Decoder {
     }
 
     public String decode(String morseEncodedText) {
-	morseDecodedTextBuffer = new StringBuffer();
+        morseDecodedTextBuffer = new StringBuffer();
         String[] splittedMorseCode = morseEncodedText.split("//");
 
         for(int wordCounter = 0; wordCounter < splittedMorseCode.length; wordCounter++) {

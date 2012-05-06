@@ -6,10 +6,10 @@ import org.junit.Test;
 
 public class DecoderTest {
 
-	Decoder morseDecoder = new Decoder();
-	
-	@Test
-	public void testIfDecodeWorksAsExpected() {
-		assertEquals("HELLO, WORLD", morseDecoder.decode("...././.-../.-../---/--..--//.--/---/.-./.-../-../"));
-	}
+    Decoder morseDecoder = new Decoder();
+
+    @Test
+    public void testIfDecodeWorksAsExpected() {
+        assertEquals("HELLO, WORLD", morseDecoder.decode("...././.-../.-../---/--..--//.--/---/.-./.-../-../"));
+    }
 }
