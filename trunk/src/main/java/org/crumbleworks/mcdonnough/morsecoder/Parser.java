@@ -15,50 +15,53 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class Parser extends DefaultHandler {
-	
     private List<MorseCodeCharacter> tempMorseCharacters;
     private MorseCodeCharacter tempMorseCharacter;
-    
+
     private boolean letter, code;
-   
+
     public Parser() {
         tempMorseCharacters = new ArrayList<MorseCodeCharacter>();
-        
+
         letter = false;
         code = false;
     }
-    
+
     public List<MorseCodeCharacter> parseDocument(String pathToDocument) {
         InputSource is = null;
-        
+
         try {
             InputStream inputStream = ClassLoader.getSystemResourceAsStream(pathToDocument);
             Reader reader = new InputStreamReader(inputStream, "UTF-8");
             is = new InputSource(reader);
             is.setEncoding("UTF-8");
-        } catch (Exception e) {
-			e.printStackTrace();
-		}
-        
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+
         SAXParserFactory spf = SAXParserFactory.newInstance();
-        
+
         try {
             SAXParser sp = spf.newSAXParser();
             sp.parse(is, this);
-        } catch (Exception e) {
-			e.printStackTrace();
-		}
-        
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+
         return tempMorseCharacters;
     }
-    
+
     @Override
-    public void startElement(String uri, String localName,String qName, Attributes attributes) throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         if(qName.equalsIgnoreCase("morsecharacter")) {
             tempMorseCharacter = new MorseCodeCharacter();
-        } else if (qName.equalsIgnoreCase("letter")) {
+        }
+        else if(qName.equalsIgnoreCase("letter")) {
             letter = true;
-        } else if (qName.equalsIgnoreCase("code")) {
+        }
+        else if(qName.equalsIgnoreCase("code")) {
             code = true;
         }
     }
@@ -72,7 +75,8 @@ public class Parser extends DefaultHandler {
         if(letter) {
             tempMorseCharacter.setLetter(new String(ch, start, length));
             letter = false;
-        } else if(code) {
+        }
+        else if(code) {
             tempMorseCharacter.setCode(new String(ch, start, length));
             code = false;
             tempMorseCharacters.add(tempMorseCharacter);
