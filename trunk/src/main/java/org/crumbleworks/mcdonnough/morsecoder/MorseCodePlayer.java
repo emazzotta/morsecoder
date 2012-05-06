@@ -7,7 +7,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class MorseCodePlayer {
     private long audioMorseCodeSpaceSleep = Constants.AUDIO_MORSECODE_SPACE_SLEEP;
-    private long audioPlaySpeed = Constants.AUDIO_PLAY_MODERATE_SPEED;
+    private long audioPlaySpeed = Constants.AUDIO_PLAY_NORMAL_SPEED;
 
     private WavePlayer playShortWave;
     private WavePlayer playLongWave;
@@ -15,8 +15,6 @@ public class MorseCodePlayer {
 
     public MorseCodePlayer(String morseCode) {
         this.morseCode = morseCode;
-        playShortWave = new WavePlayer(Constants.AUDIO_WAV_MORSECODE_SHORT_PATH, audioMorseCodeSpaceSleep);
-        playLongWave = new WavePlayer(Constants.AUDIO_WAV_MORSECODE_LONG_PATH, audioPlaySpeed);
     }
 
     public boolean isMorseCode() {
@@ -30,6 +28,8 @@ public class MorseCodePlayer {
 
     public void play() throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException, InvalidMorseCodeAudioOutputException {
         this.isMorseCode();
+        playShortWave = new WavePlayer(Constants.AUDIO_WAV_MORSECODE_SHORT_PATH, audioPlaySpeed);
+        playLongWave = new WavePlayer(Constants.AUDIO_WAV_MORSECODE_LONG_PATH, audioPlaySpeed);
 
         for(int i = 0; i < morseCode.length(); i++) {
             if(morseCode.charAt(i) == '.') {
