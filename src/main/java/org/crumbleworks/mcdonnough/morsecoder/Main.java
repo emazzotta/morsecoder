@@ -37,10 +37,10 @@ public class Main {
                 }
                 else if(currentArgument.equals("-d") || currentArgument.equals("--decode")) {
                     System.out.println("Decoding '" + text + "'");
-                    System.out.println("Decoded morsecode in text: " + decoder.decode(text) + "\n\n");
+                    System.out.println("Decoded morsecode in text: " + decoder.decode(text) + "\n");
                 }
                 else if(currentArgument.equals("-p") || currentArgument.equals("--play")) {
-                    System.out.println("Playing morsecode\n");
+                    System.out.println("Playing morsecode...");
                     player.play();
                 }
                 else if(currentArgument.startsWith("-sPauseSpeed=") || currentArgument.startsWith("--settingsPauseSpeed=")) {
@@ -96,19 +96,20 @@ public class Main {
         String usageHelp = "\ncrumbleWorks MorseCoder by Patrick Baechli & Emanuele Mazzotta ver. 1.0 - A Morsecode Library.\n";
         usageHelp += "Usage: java -jar MorseCoder.jar [OPTION]... [TEXT]\n\n";
 
-        usageHelp += "At least one argument mandatory.\n\n";
+        usageHelp += "At least one argument mandatory.\n";
+        usageHelp += "Text must be in quotes (\") when containing spaces.\n\n";
 
         usageHelp += "Convert:\n";
         usageHelp += "-e, --encode\tEncode the text to morsecode.\n";
-        usageHelp += "-d, --decode\tDecode the morsecode to text.\n";
+        usageHelp += "-d, --decode\tDecode the morsecode to text.\n\n";
 
         usageHelp += "Play:\n";
         usageHelp += "-p, --play\tAudio output morsecode. Can be text or morsecode.\n\n";
 
         usageHelp += "Settings:\n";
         usageHelp += "Warning! These options must be set before the 'Play' options!\n\n";
-        usageHelp += "-sPauseSpeed=n, --settingsPauseSpeed=n\nSet pause of a space in milliseconds (n being the number) when playing morsecode.\n\n";
-        usageHelp += "-sPlaySpeed=opt, --settingsPlaySpeed=opt\nSet speed of playing morsecode. Available options: NORMAL, MODERATE, FAST, VERYFAST\n\n";
+        usageHelp += "Option:\t\t-sPauseSpeed=n, --settingsPauseSpeed=n\nExplanation:\tSet pause of a space in milliseconds (n being the number) when playing morsecode.\n\n";
+        usageHelp += "Option:\t\t-sPlaySpeed=opt, --settingsPlaySpeed=opt\nExplanation:\tSet speed of playing morsecode. Available options: NORMAL, MODERATE, FAST, VERYFAST\n\n";
 
         return usageHelp;
     }

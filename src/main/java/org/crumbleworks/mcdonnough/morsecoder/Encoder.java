@@ -6,10 +6,10 @@ public class Encoder {
 
     public Encoder() {
         morseCodeCharacterGetter = new MorseCodeCharacterGetter(Constants.MORSECODE_CONTENT_XML_PATH);
-        morseEncodedTextBuffer = new StringBuffer();
     }
 
     public String encode(String unencodedText) {
+	morseEncodedTextBuffer = new StringBuffer();
         String[] splittedUnencodedText = unencodedText.split(" ");
 
         for(int encodedWordsCounter = 0; encodedWordsCounter < splittedUnencodedText.length; encodedWordsCounter++) {

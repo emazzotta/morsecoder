@@ -5,12 +5,11 @@ public class Decoder {
     private StringBuffer morseDecodedTextBuffer;
 
     public Decoder() {
-        morseCodeCharacterGetter = new MorseCodeCharacterGetter(
-                Constants.MORSECODE_CONTENT_XML_PATH);
-        morseDecodedTextBuffer = new StringBuffer();
+        morseCodeCharacterGetter = new MorseCodeCharacterGetter(Constants.MORSECODE_CONTENT_XML_PATH);
     }
 
     public String decode(String morseEncodedText) {
+	morseDecodedTextBuffer = new StringBuffer();
         String[] splittedMorseCode = morseEncodedText.split("//");
 
         for(int wordCounter = 0; wordCounter < splittedMorseCode.length; wordCounter++) {
