@@ -98,3 +98,11 @@ There are several prosigns available. If you're going to use them you have to us
 
 For more information read this article.
 
+## Authors
+
+* [Emanuele Mazzotta](mailto:hello@mazzotta.me)
+* Patrick Bächli
+
+## License
+
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
