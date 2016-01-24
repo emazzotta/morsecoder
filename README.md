@@ -96,7 +96,7 @@ There are several prosigns available. If you're going to use them you have to us
 [...] -e [SK]
 ```
 
-For more information read this article.
+For more information read [this](https://en.wikipedia.org/wiki/Prosigns_for_Morse_code) article.
 
 ## Authors
 
