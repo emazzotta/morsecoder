@@ -18,8 +18,6 @@ java -jar Morsecoder.jar
 java -jar Morsecoder.jar --help (displays all possible options)
 ```
 
-***
-
 ## Convert
 
 ### Text to morsecode (encode)
@@ -50,9 +48,7 @@ Multiple words
 [...] -d .../---/...//.../---/... #two slashes indent the end of a word
 ```
 
-***
-
-##  Play
+## Play
 
 The general use of the play option (-p) follows the same syntax as encoding and decoding. Example:
 
@@ -66,7 +62,7 @@ or
 [...] -p .../---/...//.../---/...
 ```
 
-### Settings
+## Settings
 
 Furthermore you can set the pause length between two words (-sPauseSpeed) and/or how fast the whole morsecode is played (-sPlaySpeed).
 
@@ -86,9 +82,7 @@ Playspeed
 [...] -sPlaySpeed=NORMAL [...] #Possible values are: NORMAL, MODERATE, FAST, VERYFAST
 ```
 
-***
-
-### Prosigns
+## Prosigns
 
 There are several prosigns available. If you're going to use them you have to use a square bracket before and after it. Example:
 
