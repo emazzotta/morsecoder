@@ -97,6 +97,3 @@ For more information read [this](https://en.wikipedia.org/wiki/Prosigns_for_Mors
 * [Emanuele Mazzotta](mailto:hello@mazzotta.me)
 * Patrick Bächli
 
-## License
-
-See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
