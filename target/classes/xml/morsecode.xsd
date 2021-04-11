@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" xmlns:morsecode="http://www.crumbleworks.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="morsecode">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="morsecharacter" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="letter" type="xsd:string" />
+							<xsd:element name="code" type="xsd:string" />
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="name" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
